@@ -23,12 +23,26 @@ const Home = () => {
         setSearch(event.target.value)
     }
 
+    useEffect(() => {
+        const storedSearch = localStorage.getItem("search")
+        const storedBooks = localStorage.getItem("bookData")
+        const storedPage = localStorage.getItem("currentPage")
+
+        if (storedSearch) setSearch(storedSearch)
+        if (storedBooks) setBookData(JSON.parse(storedBooks))
+        if (storedPage) setCurrentPage(Number(storedPage))
+    }, [])
+
     const submitSearch  = async () => {
         setLoading(true)
         try {
             const res = await axios.get(`${URL}/volumes?q=${search}&startIndex=0&maxResults=40`)
             console.log("Response Data", res)
             setBookData(res?.data?.items)
+            localStorage.setItem("search", search)
+            localStorage.setItem("bookData", JSON.stringify(res?.data?.items))
+            localStorage.setItem("currentPage", "1") // reset to page 1
+            setCurrentPage(1)
         } catch (err) {
             console.log(err, "Error Fetching Books")
         } finally {
@@ -36,6 +50,10 @@ const Home = () => {
         }
     }
 
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page)
+        localStorage.setItem("currentPage", page.toString())
+    }
     
     useEffect(() => {
         // Update total pages whenever  changes
@@ -101,7 +119,7 @@ const Home = () => {
                     <Pagination 
                         currentPage={currentPage} 
                         totalPages={totalPages} 
-                        setCurrentPage={setCurrentPage}
+                        setCurrentPage={handlePageChange}
                     />
                 </div>
                 :

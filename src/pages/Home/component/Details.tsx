@@ -85,10 +85,116 @@ const Details = () => {
                         })}
                     </div>
                 </div>
+
                 <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
                     <p className="text-white font-medium font-poppins text-xl  md:text-2xl">Info Link:</p>
                     <p className="text-white font-poppins hover:underline cursor-pointer text-base  md:text-xl" onClick={() => window.open(state?.volumeInfo?.infoLink)}>{state?.volumeInfo?.infoLink || "Not Available"}</p>
                 </div>
+
+                        {/* Sale Info */}
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Subtitle:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.volumeInfo?.subtitle || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Page Count:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.volumeInfo?.pageCount || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Print Type:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.volumeInfo?.printType || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Maturity Rating:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.volumeInfo?.maturityRating || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Preview Link:</p>
+                    <a 
+                        className="text-blue-400 underline font-poppins text-base md:text-xl" 
+                        href={state?.volumeInfo?.previewLink} 
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        View Preview
+                    </a>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Canonical Link:</p>
+                    <a 
+                        className="text-blue-400 underline font-poppins text-base md:text-xl" 
+                        href={state?.volumeInfo?.canonicalVolumeLink} 
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Go to Book Page
+                    </a>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Saleability:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.saleInfo?.saleability || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">E-Book Available:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.saleInfo?.isEbook ? "Yes" : "No"}
+                    </p>
+                </div>
+
+
+                            {/* Access Info */}
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Viewability:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.accessInfo?.viewability || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Web Reader Link:</p>
+                    <a 
+                        className="text-blue-400 underline font-poppins text-base md:text-xl" 
+                        href={state?.accessInfo?.webReaderLink} 
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Open in Web Reader
+                    </a>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Text-to-Speech:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.accessInfo?.textToSpeechPermission || "Not Available"}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <p className="text-white font-medium font-poppins text-xl md:text-2xl">Public Domain:</p>
+                    <p className="text-white font-poppins text-base md:text-xl">
+                        {state?.accessInfo?.publicDomain ? "Yes" : "No"}
+                    </p>
+                </div>
+
+
                 <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
                     <p className="text-white font-medium font-poppins text-xl md:text-2xl">Description:</p>
                     <p className="text-white font-poppins cursor-pointer text-base  md:text-xl">{state?.volumeInfo?.description || "Not Available"}</p>
