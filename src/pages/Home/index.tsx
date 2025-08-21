@@ -96,7 +96,7 @@ const Home = () => {
                                 className="flex flex-col md:flex-row items-start gap-5 md:gap-2 cursor-pointer group" 
                                 onClick={() => {navigate("/details", {state: item}), window.scrollTo(0, 0)}}
                             >
-                                <img src={item?.volumeInfo?.imageLinks?.thumbnail} alt="book" className="rounded-lg  object-contain h-[400px]" />
+                                <img src={item?.volumeInfo?.imageLinks?.thumbnail} alt="book" className="rounded-lg object-contain h-[400px]" />
                                 <div className="flex flex-col gap-3">
                                     <div className="flex items-start gap-2">
                                         <p className="text-white font-medium font-poppins text-xl">Title:</p>
